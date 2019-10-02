@@ -1,0 +1,19 @@
+body{
+    width: 1520px;
+    text-align: center;
+}
+
+h1{
+    background-color: lightblue;
+    color: lightblue;
+}
+
+img{
+    width: 300px; 
+    height:200px;
+}
+
+a{
+    font-size: 30px;
+    background-color: lightblue;
+}
