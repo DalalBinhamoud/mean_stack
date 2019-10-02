@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>survey</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div>
+    <form action='/show_result' method='post'>
+        <p>Your Name: <input type='text' name='name'></p>
+
+<P>
+
+</P>
+Dojo Location:
+<select name="location">
+        <option value="Mountain View"> Mountain View</option>
+        <option value="Palo Alto"> Palo Alto</option>
+        <option value="Milpitas"> Milpitas</option>
+    </select>
+<P>
+
+Favorite Language:
+    <select name="language">
+        <option value="JavaScript"> JavaScript </option>
+        <option value="Python"> Python</option>
+        <option value="Swift"> Swift</option>
+    </select>
+</P>
+Commennt (Optional):   
+<p>
+    <textarea name="comment"></textarea>
+    
+</p>
+ <P><input type="submit" value="send"></P>
+    </form>
+</div>
+</body>
+</html>
