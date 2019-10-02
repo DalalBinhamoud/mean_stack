@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cats</title>
+    <link href="/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <% for (var cat of cats) { %>
+        <h1>Details Page for  <%= cat.name %></h1>
+
+        <img src="/images/<%= cat.path %>" />
+        <h3>Favorit Food: <%= cat.favorit_food %></h3>
+        <h3>Age: <%= cat.age %></h3>
+        <h3>Sleeping Spot: 
+                <ul>
+                <% for (var s_Spots of cat.sleeping_spot) { %>        
+                    
+                        <li> <%= s_Spots %></li>
+                    <% } %>
+                </ul>
+        </h3>
+
+    <% } %>
+</body>
+</html>
