@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            var socket = io.connect('http://localhost:8000');
+
+      
+                $("#myForm").submit( function(e){
+
+   var dict = {name:$("#name").val(),location:$("#location").val(),language:$("#language").val(),comment:$("#comment").val() };
+   e.preventDefault()
+  socket.emit('posting_form', dict);
+});
+socket.on('updated_message', function (data) { //4
+                var theObj = data.msg
+                var output = document.getElementById("output");
+                output.innerHTML = "<p> You Emitted the following information to the server :{name: "+theObj.name+" location: "+theObj.location+" language: "+theObj.language+"Comment:"+theObj.comment+" Your Lucky Number:"+data.random+"</p>"
+                });
+
+         })
+   
+    </script>
+
+
+
+</head>
+<body>
+    <div id="output"></div>
+    <div>
+        <form  id="myForm"> 
+            <p>Your Name: <input type='text' id='name'></p>
+    
+    <P>
+        Dojo Location:
+        <select id="location">
+                <option value="Mountain View"> Mountain View</option>
+                <option value="Palo Alto"> Palo Alto</option>
+                <option value="Milpitas"> Milpitas</option>
+            </select>
+    </P>
+  
+    <P>
+    
+    Favorite Language:
+        <select id="language">
+            <option value="JavaScript"> JavaScript </option>
+            <option value="Python"> Python</option>
+            <option value="Swift"> Swift</option>
+        </select>
+    </P>
+    Commennt (Optional):   
+    <p>
+        <textarea id="comment"></textarea>     
+    </p>
+    <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
