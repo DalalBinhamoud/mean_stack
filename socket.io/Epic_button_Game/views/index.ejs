@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Epic Button</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            var socket = io.connect('http://localhost:8000');
+
+
+        $("#myBtn").click( function(){
+        socket.emit('shared_counter');
+
+});
+
+socket.on('shared_counter', function (data) { //7
+        var output = document.getElementById("myDiv");
+        output.innerHTML = "<p> The button has been pushed "+ data + " time(s)</p>"       
+  });
+
+$("#resetCount").click( function(){
+        socket.emit('reset'); //3
+
+});
+
+socket.on("reset",function(data){
+    var output = document.getElementById("myDiv");
+        output.innerHTML = "<p> The button has been pushed 0 time(s)</p>"  
+});
+});
+    </script>
+</head>
+<body>
+    <div id="output"></div>
+    <div id="myDiv">The button has been pushed 0  time(s)!</div>
+
+
+    <p>push the button to update the count!</p>
+    <button id="myBtn">Push the Ebic button</button>
+    <button id="resetCount">Reset count</button>
+
+</body>
+</html>
