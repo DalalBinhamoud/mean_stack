@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+    <script type ="text/javascript">
+
+
+            $(document).ready(function (){
+
+    var socket = io.connect('http://localhost:8000');
+    socket.emit("initial_color");
+    
+  $("#green").click (function(){
+        socket.emit("clicked_color","green");
+    });
+
+    $("#blue").click (function(){
+        socket.emit("clicked_color","blue");
+    });
+
+    $("#pink").click (function(){
+        socket.emit("clicked_color","pink");
+    });
+    
+    socket.on("set_background", function(data){
+        $("body").css("background",data);
+    });
+    
+    });  
+        </script>
+</head>
+<body>
+    <button id = "green" class="action-button shadow animate green" >Green</button>
+    <button id = "blue" class="action-button shadow animate blue" >Blue</button>
+    <button id = "pink" class="action-button shadow animate red">Pink</button>
+</body>
+</html>
