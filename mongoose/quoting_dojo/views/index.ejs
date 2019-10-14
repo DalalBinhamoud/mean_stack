@@ -1,0 +1,57 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>quoting dojo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+<h1>Quoting Dojo</h1>
+
+<section role="complementary" class="simple white-back quotes no-fouc">
+    <blockquote>
+    <h3>Welcome to Quoting Dojo</h3>
+   </blockquote>
+</section>
+<div style="background-color: pink">
+  hi
+    <%- JSON.stringify(messages) %> 
+    <!-- based on the structure of your messages, determine how to display them -->
+
+    <% if(messages.add_quote) { %>
+         <% for (var x of messages.add_quote) { %>
+     
+          <h3><%= x %> </h3>
+         <% } %>
+     <% } %>
+     bye
+</div>
+
+
+<form  action="/quotes" method="POST"  id ="myForm"> 
+<section class="quotes">
+    <blockquote>
+        Your Name:  <input name="name" id="name"  type="text" placeholder="enter your name here" />
+       </blockquote>
+</section>
+<section class="quotes">
+    <blockquote>
+        Your quote: <textarea  name="quote"  id="quote"  placeholder="enter your quote here"></textarea> 
+        
+</section><section class="quotes">
+    <blockquote>
+          <input type="submit" value="Add my quote!"> <button><a href="/quotes">Skip to Quotes!</a></button></form> 
+        
+       </blockquote>
+</section>
+</body>
+</html>
