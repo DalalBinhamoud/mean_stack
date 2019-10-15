@@ -1,0 +1,39 @@
+
+    
+   
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>quotes</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+
+  <script type ="text/javascript">
+            $(document).ready(function (){
+            var quotes = <%- JSON.stringify(quotes)%>;
+
+            var output = document.getElementById("output");
+            for (let i = 0; i < quotes.length; i++) {
+            output.innerHTML += " <div class='bubble'> <blockquote> "+ quotes[i].quote +" </blockquote> <div></div><cite>"+quotes[i].name +" at   "+ quotes[i].createdAt +"</cite> </div>"
+        }
+    
+    });
+        </script>
+</head>
+<body>
+  
+<h1>Here Are The Aweasom Quotes!</h1>
+
+
+<section class="quotes">
+        <div id="output"> </div>
+</section>
+<br><br><br>
+</body>
+</html>

@@ -1,0 +1,61 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dahsboard</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+<h1>Dojo Message Board</h1>
+
+<section role="complementary" class="simple white-back quotes no-fouc">
+    <blockquote>
+    <h3></h3>
+   </blockquote>
+</section>
+
+
+<section class="quotes">
+ <blockquote> 
+    <form action="/add_user" method="POST" style="float: left;">
+        <p>First Name:</p>
+        <input type="text" name="fname">
+        <p>Last Name:</p>
+        <input type="text" name="lname">
+        <p>Email:</p>
+        <input type="email" name="email">
+        <p>Password:</p>
+        <input type="password" name="password">
+        <p>Birth Date:</p>
+        <input type="date" name="birthDate">
+       
+        <p> <input type="submit" value="Register"></p>
+    </form>
+       </blockquote>
+</section>
+
+<section class="quotes">
+    <blockquote> 
+       <form action="/login_user" method="POST" >
+           <p>Email:</p>
+           <input type="email" name="email">
+           <p>Password:</p>
+           <input type="password" name="password">
+           <p><input type="submit" value="Login"></p>
+       </form>
+          </blockquote>
+   </section>
+<section class="quotes">
+    <div id="output"> </div>
+</section>
+</body>
+</html>
