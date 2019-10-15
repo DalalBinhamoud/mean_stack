@@ -1,0 +1,58 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dahsboard</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+<h1>Mongoose Dashboard</h1>
+
+<section role="complementary" class="simple white-back quotes no-fouc">
+    <blockquote>
+    <h3></h3>
+   </blockquote>
+</section>
+
+
+<section class="quotes">
+ <blockquote>
+  
+        <table id="output">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Food</th>
+                <th>Created At</th>
+                <th>Action</th>
+            </tr>
+
+            <% mongoose.forEach((mongo) => { %>
+                <tr>
+                    <td><%= mongo._id %></td>
+                    <td><%= mongo.name %></td>
+                    <td><%= mongo.food %></td>
+                    <td><%= mongo.createdAt %></td>
+                    <td><a href='/mongooses/<%=  mongo._id %>'>Show| <a href='/edit/<%= mongo._id %>'>Edit</a></td>
+                </tr>
+
+              <% }) %>
+
+        </table>
+       </blockquote>
+</section>
+<section class="quotes">
+    <blockquote>
+        <a href="/new">Add a New User</a></blockquote>
+</section>
+</body>
+</html>
